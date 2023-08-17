@@ -26,6 +26,7 @@ public class GoWeatherService {
     }
 
     private Mono<CityDetails> handleError(Throwable t, String cityName) {
+        log.error("Error: " +  t.getMessage());
         CityDetails cityDetails = new CityDetails();
         cityDetails.setName(cityName);
         return Mono.just(cityDetails);
